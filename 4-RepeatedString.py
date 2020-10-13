@@ -28,14 +28,15 @@ repeatedString has the following parameter(s):
 def repeatedString(s, n):
     # Constraints
     assert(len(s)<100)
-    assert(n>=1 and n<10**12 )
+    assert(n>=1 and n<=10**12 )
+
     c = 'a'
     if n <= len(s):
-        print (s[:n].count(c))
+        rep = s[:n].count(c)
     else:
-        rep = s.count(c)*(n//len(s))+ s[:(n%len(s))].count(c)
-        print(rep)
-
+        rep = s.count(c) * (n // len(s)) + s[:(n % len(s))].count(c)
+    print(rep)
+    return rep
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
